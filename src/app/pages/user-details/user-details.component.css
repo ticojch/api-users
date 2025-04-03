@@ -1,0 +1,23 @@
+.container-user{
+    background-color: brown;
+    width: 600px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.name-span{
+    color: rgb(102, 243, 67);
+}
+
+.usuario{
+    color: aqua;
+}
+
+.direccion{
+    color: rgb(255, 203, 58);
+}
+
+.email{
+    color: rgb(255, 0, 200);
+}

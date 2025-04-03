@@ -1,0 +1,11 @@
+<app-header></app-header>
+@if(selectedUser){
+    <div class="container-user">
+        <h2><span class="name-span">Nombre Completo: </span>{{selectedUser.name}}</h2>
+        <p><span class="usuario">Usuario:</span> {{selectedUser.username}}</p>
+        <p><span class="email">Email:</span> {{selectedUser.email}}</p>
+        <p><span class="direccion">Direccion:</span> {{selectedUser.address.street}}</p>
+    </div>
+}@else{
+    <p>No existe ese usuario</p>
+}
