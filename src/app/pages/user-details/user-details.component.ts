@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../core/services/user.service';
 import { HeaderComponent } from '../../components/header/header.component';
+import { GenerarCSVComponent } from '../../components/generar-csv/generar-csv.component';
 
 @Component({
   selector: 'app-user-details',
-  imports: [HeaderComponent],
+  imports: [HeaderComponent,GenerarCSVComponent],
   templateUrl: './user-details.component.html',
   styleUrl: './user-details.component.css'
 })
