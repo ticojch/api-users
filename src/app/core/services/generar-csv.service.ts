@@ -1,15 +1,13 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { UserService } from '../../core/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
-@Component({
-  selector: 'app-generar-csv',
-  imports: [],
-  templateUrl: './generar-csv.component.html',
-  styleUrl: './generar-csv.component.css'
+@Injectable({
+  providedIn: 'root'
 })
-export class GenerarCSVComponent {
-  constructor(private generarCSV:UserService){}
-
+export class GenerarCsvService {  
+  constructor(private generarCSV:UserService, private route: ActivatedRoute){}
+  
   convertirAFormatoCSV(data: any[]): string {
     //Aplanar datos JSON, para validar datos anidados y colocarlos todos en una fila
     const datosAplanados = data.map((dato)=> this.aplanar(dato));
@@ -64,18 +62,20 @@ export class GenerarCSVComponent {
 
   descargarTrabajadoresCSV(){
     this.generarCSV.getData().subscribe((data) => {
+      console.log(data);
       const csv = this.convertirAFormatoCSV(data);
-      // this.descargarArchivoCSV(csv, 'datos.csv');
+      this.descargarArchivoCSV(csv, 'datos.csv');
       this.mostrarCSV(csv);
     });
   }
 
   descargarTrabajadorCSV(id:number){
     this.generarCSV.getUser(id).subscribe((data) => {
-      const csv = this.convertirAFormatoCSV(data);
-      this.descargarArchivoCSV(csv, 'datos.csv');
+      const arregloUsuario = [data];
+      console.log(arregloUsuario);
+      const csv = this.convertirAFormatoCSV(arregloUsuario);
+      this.descargarArchivoCSV(csv, 'user_'+data.id+'.csv');
       this.mostrarCSV(csv);
     });
   }
-  
 }

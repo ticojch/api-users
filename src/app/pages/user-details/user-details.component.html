@@ -5,7 +5,7 @@
         <p><span class="usuario">Usuario:</span> {{selectedUser.username}}</p>
         <p><span class="email">Email:</span> {{selectedUser.email}}</p>
         <p><span class="direccion">Direccion:</span> {{selectedUser.address.street}}</p>
-        <!-- <app-generar-csv [id]="selectedUser"></app-generar-csv> -->
+        <button (click)="generarCsvTrabajador()">Generar CSV de {{selectedUser.name}}</button>
     </div>
 }@else{
     <p>No existe ese usuario</p>
